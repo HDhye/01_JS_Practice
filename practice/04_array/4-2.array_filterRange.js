@@ -3,20 +3,26 @@
 삭제해주는 함수 filterRange(arr, a, b)를 작성한다.
 힌트 : splice
 
-output
-[5, 3, 1, 4]
+
 
 */
 
 function filterRange(arr, a, b) {
+    if(a > b){      // 전달인자 순서 상관없이 하기 위해 작성
+        let tmp = 0; 
+        tmp = a;
+        a = b; 
+        b = tmp; 
+    }; 
     for(let i = 0; i < arr.length; i++){
         if(arr[i] < a || arr[i] > b) {
-            arr.splice(i, 1); 
+            arr.splice(i, 1);
+            i--; 
         };        
     };
 };
 
 const arr = [5, 3, 8, 1, 10, 4];
-filterRange(arr, 1, 5);
+filterRange(arr, 8, 3);
 console.log(arr)
 
