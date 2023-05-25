@@ -114,7 +114,7 @@
                     result = Number($num1.value) % Number($num2.value);
                     break;
             }
-            return document.getElementById('calc').textContent = `${result}`; 
+            return document.getElementById('calc').textContent = `${result}`; // result를 다시 텍스트로 전달한다 
         };
     </script>
 
@@ -133,10 +133,10 @@
         <li>도서</li>
     </ul>
     <script>
-        const $list = document.getElementById('list');
+        const $list = document.getElementById('list'); // 4-2번 문제에서도 쓰여지므로 함수밖에서 선언한다. 
         function deleteList() {
-            while($list.childElementCount !== 0) 
-            $list.removeChild($list.lastElementChild);
+            while($list.childElementCount !== 0)   // 전체 삭제를 위해 li(자식) 노드 갯수가 0이 아닐동안 제거를 반복한다.
+            $list.removeChild($list.lastElementChild);  
         }
     </script>
 
@@ -152,11 +152,11 @@
         function createList(){
             let content = prompt('추가할 목록을 입력하세요');
 
-            if(content){
-                const $li = document.createElement('li');
-                $li.textContent = `${content}`;
+            if(content){        // content가 입력되면 truthy, 미입력(취소)시 null이므로 false 이다.  
+                const $li = document.createElement('li');   // 1. li 요소를 생성한다. 
+                $li.textContent = `${content}`;             // 2. 입력받은 텍스트를 li의 텍스트 요소로 넣어준다. 
 
-                $list.appendChild($li);
+                $list.appendChild($li);                     // 3. 생성된 li를 위 ul의 자식으로 추가해준다.  
             } 
         }
     </script>
@@ -167,16 +167,16 @@
         Ex. first - second - third 인 상태에서 left 1번 클릭하면 second - third - first로 변경<br>
         left 한 번 더 클릭하면 third - first - second 로 변경
     </p>
-    <button onclick="left();">왼쪽으로</button>
+    <button onclick="left();">왼쪽으로</button>     
     <div id="area">
         <div class="first">first</div>
         <div class="second">second</div>
         <div class="third">third</div>
     </div>
     <script>
-        function left(){
+        function left(){                         // 왼쪽으로 ==> 첫번째(맨 왼쪽) 요소가 오른쪽(제일 마지막)으로 가는 것 
             const $area = document.getElementById('area');        
-                $area.appendChild($area.firstElementChild);
+                $area.appendChild($area.firstElementChild); //첫번째 요소를 다시 추가해주면 기존 위치는 삭제되고 맨 마지막 순서로 추가된다. 
         }
     </script>
 
