@@ -172,6 +172,7 @@
   <script>
     
     const $view = document.getElementById('view'); // 원 view 취득
+
     $view.onclick = edit; 
     // view 클릭시 발생할 함수 작성
     function edit() {
@@ -186,14 +187,12 @@
           $text.blur();
         }
       };
-
       $text.onblur = e => {          
         $text.replaceWith($view);         // 기존 view 노드로 교체되며 
         $view.innerText = $text.value;   // 텍스트내용은 그대로 보존한다.
       };
 
     };
-    
 
   </script>
 
